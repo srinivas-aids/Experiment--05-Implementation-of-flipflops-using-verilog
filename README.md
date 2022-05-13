@@ -106,35 +106,98 @@ Q(t+1)=T′Q(t)+TQ(t)′
 
 
 
-### PROGRAM 
+### PROGRAM :1
+~~~
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: u.srinivas
+RegisterNumber:  212221230108
+
+module sr (q,qbar,s,r,clk);
+input s,r,clk;
+output q,qbar;
+wire nand1_out;
+wire nand2_out;
+nand(nand1_out,clk,s);
+nand(nand2_out,clk,r);
+nand(q,nand1_out,qbar);
+nand(qbar,nand2_out,q);
+endmodule 
 */
+~~~
+### RTL LOGIC FOR FLIPFLOPS 
+![output](1.png)
 
+### TIMING DIGRAMS FOR FLIP FLOPS
 
+![output](2.png) 
+ ### PROGRAM :2
+ ~~~
+ Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by: srinivas.u
+RegisterNumber:  212221230108
 
-
-
+module jk(q,qbar,k,j,clk);
+input j,k,clk;
+output q,qbar;
+wire nand1_out;
+wire nand2_out;
+nand(nand1_out,j,clk,qbar);
+nand(nand2_out,k,clk,q);
+nand(q,nand1_out,qbar,qbar);
+nand(qbar,nand2_out,q);
+endmodule
+~~~
 
 ### RTL LOGIC FOR FLIPFLOPS 
+![output](3.png)
+### TIMING DIGRAMS FOR FLIP FLOPS
+![output](4.png) 
+
+ ### PROGRAM:3
+ ~~~
+ Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by: u.srinivas
+RegisterNumber:  212221230108
+
+module d(q,qbar,d1,clk);
+input d1,clk;
+output q,qbar;
+wire n1;
+wire n2;
+not(x,d1);
+nand(n1,clk,d1);
+nand(n2,clk,x);
+nand(q,n2,qbar);
+nand(qbar,n1,q);
+endmodule 
+~~~
+### RTL LOGIC FOR FLIPFLOPS 
+![output](5.png)
+### TIMING DIGRAMS FOR FLIP FLOPS
+![output](6.png) 
 
 
+### program: 4
+~~~
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by: u.srinivas
+RegisterNumber:  212221230108
 
-
-
-
-
-
-
-### TIMING DIGRAMS FOR FLIP FLOPS 
-
-
-
-
-
-
-
+module tff(t,qbar,q,clk);
+input t,clk;
+output q,qbar;
+wire n1,n2;
+nand(n1,t,clk,qbar);
+nand(n2,clk,t,q);
+nand(q,n1,qbar);
+nand(qbar,n2,q);
+endmodule
+~~~
+### RTL LOGIC FOR FLIPFLOPS 
+![output](7.png)
+### TIMING DIGRAMS FOR FLIP FLOPS
+![output](8.png) 
 
 ### RESULTS 
+Thus implementation of SR,JK,D and T flipflops using nand gates are done sucessfully.
